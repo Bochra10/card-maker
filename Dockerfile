@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build --configuration=production
 
 # Expose port 4200
-EXPOSE 4200
+# EXPOSE 4200
 
 # Command to run the application
 CMD ["npm", "start"]
