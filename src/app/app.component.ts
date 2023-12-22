@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'first-angular';
+  cardsList: any[] = [{'email':'bochra@arfaoui.com','firstname':'bochra','lastname':'arfaoui', 'city':'rades'},{'email':'bochra@arfaoui.com','firstname':'bochra','lastname':'arfaoui', 'city':'rades'},{'email':'bochra@arfaoui.com','firstname':'bochra','lastname':'arfaoui', 'city':'rades'},{'email':'bochra@arfaoui.com','firstname':'bochra','lastname':'arfaoui', 'city':'rades'},{'email':'bochra@arfaoui.com','firstname':'bochra','lastname':'arfaoui', 'city':'rades'}];
+  title = 'Card Maker';
 }
