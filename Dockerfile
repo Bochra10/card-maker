@@ -1,5 +1,5 @@
 # Use an official Node runtime as a base image
-FROM node:14
+FROM node:18
 
 # Set the working directory to /app
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app
-RUN npm run build --configuration production
+RUN ng build --configuration production
 
 # Expose port 80
 EXPOSE 80
