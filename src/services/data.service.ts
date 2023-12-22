@@ -37,6 +37,7 @@ export class DataService {
 
   updateUser(user: any): Observable<any> {
     const endpoint = '/users';
+    console.log(user);
     return this.http.put<any[]>(`${this.apiUrl}${endpoint}`, user).pipe(
       catchError((error)=> {
         console.log(error);
