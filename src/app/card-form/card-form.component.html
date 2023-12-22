@@ -3,19 +3,19 @@
     <form [formGroup]="userForm" >
       <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required minlength="5" autocomplete="true" value= "{{card?.firstname}}">
+        <input type="text" id="firstName" name="firstName" required minlength="5" autocomplete="true" ngModel="{{card?.firstName}}" [formControl]="userForm.get('firstName')">
       </div>
       <div>
         <label for="lastname">Lastname:</label>
-        <input type="text" id="lastname" name="lastname" required minlength="5"  autocomplete="true" value="{{card?.lastname}}">
+        <input type="text" id="lastName" name="lastName" required minlength="5"  autocomplete="true" ngModel="{{card?.lastName}}" [formControl]="userForm.get('lastName')">
       </div>
       <div>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required value="{{card?.email}}">
+        <input type="email" id="email" name="email" required ngModel="{{card?.email}}" [formControl]="userForm.get('email')">
       </div>
       <div>
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" required value="{{card?.city}}">
+        <input type="text" id="city" name="city" required ngModel="{{card?.city}}" [formControl]="userForm.get('city')">
       </div>
       <button  class="action-button" (click)="submitForm()">{{isNewCard? "Create": "Save"}}</button>
       <button *ngIf="!isNewCard"  class="action-button"  (click)="deleteCard()" style="background-color: red; margin-top: 0.5rem;">Delete</button>

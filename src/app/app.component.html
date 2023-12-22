@@ -207,7 +207,7 @@
           
           <tbody>
             <tr *ngFor="let item of cardsList">
-              <td>{{ (item.firstname + ' ' + item.lastname) | capitalizeFirstLetter }}</td>
+              <td>{{ (item.firstName + ' ' + item.lastName) | capitalizeFirstLetter }}</td>
               <td>{{ item.email }}</td>
               <td>{{ item.city | capitalizeFirstLetter }}</td>
               <td *ngIf="!displayNewCardComponent"><button (click)="toggleCardFormComponent(item)">🖋</button></td>

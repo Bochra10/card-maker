@@ -26,7 +26,7 @@ export class DataService {
 
   addUser(user:any): Observable<any> {
     const endpoint = '/users';
-    debugger;
+    console.log(user);
     return this.http.post<any>(`${this.apiUrl}${endpoint}`, user).pipe(
       catchError((error)=> {
         console.log(error);
@@ -36,7 +36,7 @@ export class DataService {
   }
 
   updateUser(user: any): Observable<any> {
-    const endpoint = '/user';
+    const endpoint = '/users';
     return this.http.put<any[]>(`${this.apiUrl}${endpoint}`, user).pipe(
       catchError((error)=> {
         console.log(error);
@@ -45,9 +45,9 @@ export class DataService {
     );
   }
 
-  deleteUser(mail: String): Observable<any> {
-    const endpoint = '/user';
-    return this.http.delete<any[]>(`${this.apiUrl}${endpoint}`,).pipe(
+  deleteUser(email: String): Observable<any> {
+    const endpoint = '/users/'+email;
+    return this.http.delete<any[]>(`${this.apiUrl}${endpoint}`).pipe(
       catchError((error)=> {
         console.log(error);
         return null;

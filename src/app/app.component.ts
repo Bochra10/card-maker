@@ -22,16 +22,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Call your API here to fetch data and populate cardsList
     // For demonstration, I'm simulating an API call with a timeout
-    this.fetchDataaFromApi();
+    this.fetchDataFromApi();
   }
 
   fetchDataFromApi(): void {
     this.dataService.getUsers().subscribe(
       (data) => {
         this.cardsList = data;
-      },
-      (error) => {
-        this.cardsList = [];
       }
     );
   }
@@ -46,16 +43,16 @@ export class AppComponent implements OnInit {
 
       // Simulated data
       this.cardsList = [
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
-        { 'email': 'bochra@arfaoui.com', 'firstname': 'bochra', 'lastname': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
+        { 'email': 'bochra@arfaoui.com', 'firstName': 'bochra', 'lastName': 'arfaoui', 'city': 'rades' },
       ];
 
     }, 1000); // Simulated 1-second delay
