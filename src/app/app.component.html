@@ -1,12 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
@@ -184,6 +175,7 @@
 </style>
 
 <main class="main">
+  <router-outlet></router-outlet>
   <div class="image-container">
     <img src="assets/website-logo.png" alt="Card Maker Website Logo">
   </div>
@@ -191,14 +183,17 @@
     <div class="left-side">
       <p>Welcome to the best card maker site on web. 🎉</p>
       <div class="button-div">
-        <a class="button" [href]="" target="_blank" rel="noopener">
+        <button *ngIf="!displayNewCardComponent" (click)="toggleCardFormComponent(null)" class="button" routerLink="/card"
+          target="_blank" rel="noopener">
           <span> Create a new card</span>
-        </a>
-
+        </button>
+        <button *ngIf="displayNewCardComponent" (click)="toggleCardFormComponent(null)" style="margin: 0.2rem;">❌ Cancel</button> 
+        <app-card-form *ngIf="displayNewCardComponent" [isNewCard]="!updatingCard" [card]="cardToUpdate" >New Component Content</app-card-form>
       </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
+      <p *ngIf="cardsList.length==0">No card for now. 😕 Start by creating your first one!</p>
       <div class="table-container">
         <table>
           <thead>
@@ -206,15 +201,16 @@
               <th>Full Name</th>
               <th>Email Address</th>
               <th>City</th>
-              <th>Action</th>
+              <th *ngIf="!displayNewCardComponent">Edit</th>
             </tr>
           </thead>
+          
           <tbody>
             <tr *ngFor="let item of cardsList">
-              <td>{{ item.firstname + ' ' + item.lastname }}</td>
+              <td>{{ (item.firstname + ' ' + item.lastname) | capitalizeFirstLetter }}</td>
               <td>{{ item.email }}</td>
-              <td>{{ item.city }}</td>
-              <td><a routerLink="/edit/{{ item.id }}">🖋</a></td>
+              <td>{{ item.city | capitalizeFirstLetter }}</td>
+              <td *ngIf="!displayNewCardComponent"><button (click)="toggleCardFormComponent(item)">🖋</button></td>
             </tr>
           </tbody>
         </table>

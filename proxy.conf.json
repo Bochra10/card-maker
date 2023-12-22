@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "http://20.105.16.136:8080",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
+  
